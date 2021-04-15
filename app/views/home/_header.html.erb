@@ -20,6 +20,7 @@
           <ul class="dropdown-menu" aria-labelledby="navbarDropdown1">
             <li><%= link_to 'Edit Profile', edit_user_registration_path, class:"dropdown-item" %></li>
             <li><%= button_to 'Sign Out', destroy_user_session_path, method: :delete, class:"dropdown-item" %></li>
+            <li><hr class="dropdown-divider"></li>
             <li><%= link_to 'My Friends', home_my_path, class:"dropdown-item" %></li>
           </ul>
         </li>
@@ -39,13 +40,7 @@
         <% end %>
 
       </ul>
-      <form class="d-flex">
-         <%= search_form_for @q do |f| %>
-         <% f.label :first_name_or_last_name_cont %>
-         <%= f.search_field :first_name_or_last_name_cont%>
-         <%= f.submit %>
-      <% end %>
-      </form>
+
     </div>
   </div>
 </nav>   

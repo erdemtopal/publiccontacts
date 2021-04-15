@@ -14,30 +14,24 @@ class FriendsController < ApplicationController
   # GET /friends/1
   # GET /friends/1.json
   def show
-    @q = Friend.ransack(params[:q])
-    @friends = @q.result(distinct: true)
+
   end
 
   # GET /friends/new
   def new
     #@friend = Friend.new
     @friend = current_user.friends.build
-    @q = Friend.ransack(params[:q])
-    @friends = @q.result(distinct: true)
   end
 
   # GET /friends/1/edit
   def edit
-    @q = Friend.ransack(params[:q])
-    @friends = @q.result(distinct: true)
+ 
   end
 
   # POST /friends
   # POST /friends.json
   def create
     #@friend = Friend.new(friend_params)
-    @q = Friend.ransack(params[:q])
-    @friends = @q.result(distinct: true)
 
     @friend = current_user.friends.build(friend_params)
     respond_to do |format|
@@ -54,8 +48,7 @@ class FriendsController < ApplicationController
   # PATCH/PUT /friends/1
   # PATCH/PUT /friends/1.json
   def update
-    @q = Friend.ransack(params[:q])
-    @friends = @q.result(distinct: true)
+
     respond_to do |format|
       if @friend.update(friend_params)
         format.html { redirect_to @friend, notice: 'Friend was successfully updated.' }
@@ -70,8 +63,7 @@ class FriendsController < ApplicationController
   # DELETE /friends/1
   # DELETE /friends/1.json
   def destroy
-    @q = Friend.ransack(params[:q])
-    @friends = @q.result(distinct: true)
+
     @friend.destroy
     respond_to do |format|
       format.html { redirect_to friends_url, notice: 'Friend was successfully destroyed.' }

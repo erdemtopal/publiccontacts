@@ -5,8 +5,7 @@ class HomeController < ApplicationController
   end
 
   def about
-  	@q = Friend.ransack(params[:q])
-     @friends = @q.result(distinct: true)
+
   end
 
   def my
